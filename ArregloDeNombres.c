@@ -1,28 +1,27 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-/*void mostrarPersonas(char ArreDeNombres[]);*/
+void mostrarPersonas(char *ArreDeNombres[]);
 
 int main(){
 
 printf("Ingrese 5 nombres de persona: \n");
-char * ArreDeNombres[5];
-char *buff[100];
+char *arreglosNombres[5];
+char nombre[100];
+
 for (int i = 0; i < 5; i++)
 {
-scanf("%s",&buff);
-int cantidadCaract=strlen(buff);
-ArreDeNombres[i]=(char*)malloc(sizeof(char)*cantidadCaract);
-strcpy(ArreDeNombres[i],buff);
+    scanf("%s", nombre);
+    int cant=strlen(nombre);
+    arreglosNombres[i]=malloc(cant+1*(sizeof(char)));
+    strcpy(arreglosNombres[i],nombre);
 }
-printf("Muestra por pantalla \n");
-
-mostrarPersonas(&ArreDeNombres);
+mostrarPersonas(arreglosNombres);
 
     return 0;
 }
 
-/*void mostrarPersonas(char  ArreDeNombres[]){
+void mostrarPersonas(char  *ArreDeNombres[]){
 
     for (int i = 0; i < 5; i++)
     {
@@ -30,4 +29,4 @@ mostrarPersonas(&ArreDeNombres);
     }
     
 
-}*/
+}
