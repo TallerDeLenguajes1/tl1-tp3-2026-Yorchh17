@@ -3,9 +3,10 @@
 #include<stdlib.h>
 void mostrarPersonas(char *ArreDeNombres[]);
 int BuscaNombrePorPalabra(char *buscar,char *ArreDeNombres[]);
+void BuscarNombrePorID(int num, char *ArreDeNombres[]);
 int main(){
 
-
+int num;
 printf("Ingrese 5 nombres de persona: \n");
 char *arreglosNombres[5];
 char nombre[100];
@@ -28,7 +29,9 @@ if (indice==-1)
 }else{
     printf("El nombre encontrado es : \n %s", arreglosNombres[indice]);
 }
-
+printf("Ingrese un numero de 0 a 5: \n");
+scanf("%d",&num);
+BuscarNombrePorID(num,arreglosNombres);
     return 0;
 }
 
@@ -40,6 +43,7 @@ void mostrarPersonas(char  *ArreDeNombres[]){
     }
 }
 
+
 int BuscaNombrePorPalabra(char *buscar, char *ArreDeNombres[]) {
     for (int i = 0; i < 5; i++) {
         
@@ -49,4 +53,13 @@ int BuscaNombrePorPalabra(char *buscar, char *ArreDeNombres[]) {
     }
     return -1;
 }
+void BuscarNombrePorID(int num, char *ArreDeNombres[]){
 
+    if (num<0 || num>4)
+    {
+        printf("No se encontro el valor buscado\n");
+    }else{
+        printf("El nombre ubicado en esa posicion es  %s \n", ArreDeNombres[num]);
+    }
+    
+}
