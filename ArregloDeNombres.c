@@ -6,7 +6,7 @@ int BuscaNombrePorPalabra(char *buscar,char *ArreDeNombres[]);
 void BuscarNombrePorID(int num, char *ArreDeNombres[]);
 int main(){
 
-int num;
+int num,numopc;
 printf("Ingrese 5 nombres de persona: \n");
 char *arreglosNombres[5];
 char nombre[100];
@@ -20,18 +20,25 @@ for (int i = 0; i < 5; i++)
 }
 mostrarPersonas(arreglosNombres);
 
-printf("Ingrese la palabra a buscar \n");
-scanf("%s",buscar);
-int indice=BuscaNombrePorPalabra(buscar,arreglosNombres);
-if (indice==-1)
+printf("Si desea buscar por ID ingrese 1 si desea buscar por palabra ingrese 2 \n");
+scanf("%d",&numopc);
+if (numopc==1)
 {
-    printf("No se encontro el nombre \n");
-}else{
-    printf("El nombre encontrado es : \n %s", arreglosNombres[indice]);
-}
 printf("Ingrese un numero de 0 a 5: \n");
 scanf("%d",&num);
 BuscarNombrePorID(num,arreglosNombres);
+}else{
+    printf("Ingrese la palabra a buscar \n");
+    scanf("%s",buscar);
+    int indice=BuscaNombrePorPalabra(buscar,arreglosNombres);
+    if (indice==-1)
+    {
+        printf("No se encontro el nombre \n");
+    }else{
+        printf("El nombre encontrado es : \n %s", arreglosNombres[indice]);
+    }
+}
+
     return 0;
 }
 
