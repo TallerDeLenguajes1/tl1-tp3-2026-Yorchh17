@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 void mostrarPersonas(char *ArreDeNombres[]);
-int BuscarNombre(char *buscar,char *ArreDeNombres[]);
+int BuscaNombrePorPalabra(char *buscar,char *ArreDeNombres[]);
 int main(){
 
 
@@ -21,7 +21,7 @@ mostrarPersonas(arreglosNombres);
 
 printf("Ingrese la palabra a buscar \n");
 scanf("%s",buscar);
-int indice=BuscarNombre(buscar,arreglosNombres);
+int indice=BuscaNombrePorPalabra(buscar,arreglosNombres);
 if (indice==-1)
 {
     printf("No se encontro el nombre \n");
@@ -40,7 +40,7 @@ void mostrarPersonas(char  *ArreDeNombres[]){
     }
 }
 
-int BuscarNombre(char *buscar, char *ArreDeNombres[]) {
+int BuscaNombrePorPalabra(char *buscar, char *ArreDeNombres[]) {
     for (int i = 0; i < 5; i++) {
         
         if (strstr(ArreDeNombres[i], buscar) != NULL) {
